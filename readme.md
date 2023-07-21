@@ -109,3 +109,92 @@ func main() {
 	}
 }
 ```
+
+## Perulangan
+
+merupakan proses mengulang-ulang eksekusi block code tanpa henti selama kondisi yang dijadikan sebagai acuan masih terpenuhi, biasanya disiapkan variabel untuk diiterasi atau variabel penanda kapan perulangan akan berhenti.
+
+di GO keyword perulangan hanya `for` saja, namun kemampuannya merupakan gabungan dari `for`, `forEach`, dan `while` dalam kebanyakan bahasa pemrograman.
+
+1. Perulangan menggunakan keyword `for`
+
+Ada beberapa cara standar menggunakan keyword `for`, cara pertama dengan memasukkan variabel counter perulangan beserta kondisi setelah keyword.
+
+```go
+for i := 0; i < 100; i++ {
+		fmt.Println("angka", i)
+}
+```
+
+perulangan di atas akan berjalan ketika variabel `i` bernilai dibawah 100, dengan ketentuan setiap perulangan variabel `i` akan di increment 1 (i++ artinya akan di tambah satu (i = i + 1)), karena i pada awalnya bernilai 0, maka perulangan akan berjalan sebanyak 100 kali.
+
+2. Penggunaan `for` dengan argument hanya kondisi
+
+cara kedua adalah dengan menuliskan kondisi setelah keyword `for`, konsepnya mirip seperti `while` pada bahasa pemrograman lain.
+
+```go
+var i = 0
+
+for i <= 50 {
+	fmt.Println("angka", i)
+	i++
+}
+```
+
+3. Penggunaan `for` tanpa argument
+
+dengan begini akan dihasilkan perulangan tanpa henti, Pemberhentian peruangan dilakukan dengan menggunakan keyword `break`.
+
+```go
+var i = 0
+
+for {
+	if i >= 10 {
+		break
+	}
+	i++
+	fmt.Println("nilai", i)
+}
+```
+
+4. Penggunaan keyword `break` dan `continue`
+
+keyword `break` digunakan untuk menghentikan sebuah perulangan, sedangkan keyword `continue` digunakan untuk memajukan ke perulangan selanjutnya.
+
+```go
+for i := 1; i < 50; i++ {
+
+	if i%2 == 1 {
+		continue
+	}
+
+	if i >= 20 {
+		break
+	}
+
+	fmt.Println("Angka Genap :", i)
+}
+```
+
+kode di atas akan mencetak semua angka genap ke layar, dan ketika variabel `i` di modulo (%) 2 masih sisa 1 (bilangan ganjil), maka akan di lanjut ke perulangan selanjutnya dengan menggunakan keyword `continue` tanpa mengeksekusi kode setelahnya, dan ketika variabel `i` berisi 20 maka perulangan akan berhenti yang di hentikan dengan menggunakan keyword `break`.
+
+5. Perulangan bersarang
+
+merupakan perulangan, yang berada di dalam perulangan, yang mungkin berada didalam perulangan lagi dan seterusnya.
+
+```go
+for i := 1; i < 10; i++ {
+	for j := i; j < 10; j++ {
+		fmt.Print(j, " ")
+	}
+	fmt.Println()
+}
+```
+
+6. Pemanfaatan label dalam perulangan
+
+di perulangan bersarang, `break` dan `continue` akan berlaku pada block perulangan dimana ia digunakan saja. Penggunaan label digunakan untuk memberikan identifikasi pada sebuah perulangan, sehingga dapat mengontrol aliran eksekusi program dengan baik.
+
+Label digunakan untuk mengubah aliran eksekusi program dengan mengarahkan perulangan atau statement lainnya untuk melompat ke posisi tertentu dalam kode.
+
+Penggunaan label pada perulangan bersarang berguna ketika kita ingin melakukan perulangan berdasarkan kondisi tertentu yang berbeda dari perulangan yang diinginkan, atau ketika ingin keluar dari beberapa tingkat perulangan secara bersamaan.

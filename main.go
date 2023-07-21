@@ -89,6 +89,72 @@ func keyFallthrough() {
 		fmt.Println("?")
 	}
 }
+func perulanganFor() {
+	for i := 0; i < 100; i++ {
+		fmt.Println("angka", i)
+	}
+}
+
+func forHanyaKondisi() {
+	var i = 0
+	for i <= 50 {
+		fmt.Println("angka", i)
+		i++
+	}
+}
+
+func tanpaArgument() {
+	var i = 0
+
+	for {
+		if i >= 10 {
+			break
+		}
+		i++
+		fmt.Println("nilai", i)
+	}
+}
+
+func breakContinue() {
+	for i := 1; i < 50; i++ {
+		if i%2 == 1 {
+			continue
+		}
+
+		if i >= 20 {
+			break
+		}
+
+		fmt.Println("Angka Genap :", i)
+	}
+}
+
+func bersarang() {
+	for i := 1; i < 10; i++ {
+		for j := i; j < 10; j++ {
+			fmt.Print(j, " ")
+		}
+		fmt.Println()
+	}
+}
+
+func label() {
+outerLoop: // penamaan label
+	for i := 0; i < 5; i++ {
+	innerLoop:
+		for j := 0; j < 5; j++ {
+			if j == 3 {
+				fmt.Printf("Keluar dari inner loop\n")
+				break innerLoop
+			}
+			if i == 3 {
+				fmt.Printf("Keluar dari inner dan outer loop\n")
+				break outerLoop
+			}
+			fmt.Print("Matriks [", i, "][", j, "]", "\n")
+		}
+	}
+}
 
 func main() {
 	fmt.Println("--------------------")
@@ -101,5 +167,17 @@ func main() {
 	switchGayaIfElse()
 	fmt.Println("--------------------")
 	keyFallthrough()
+	fmt.Println("--------------------")
+	perulanganFor()
+	fmt.Println("--------------------")
+	forHanyaKondisi()
+	fmt.Println("--------------------")
+	tanpaArgument()
+	fmt.Println("--------------------")
+	breakContinue()
+	fmt.Println("--------------------")
+	bersarang()
+	fmt.Println("--------------------")
+	label()
 	fmt.Println("--------------------")
 }
